@@ -1,0 +1,432 @@
+﻿<Window x:Name="BeeCoin" x:Class="BeeCoin.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BeeCoin"
+        mc:Ignorable="d"
+        Title="BeeCoin" Width="600" AllowsTransparency="True" WindowStyle="None" MinWidth="600" MinHeight="550" ResizeMode="CanResizeWithGrip" Height="550" MaxWidth="800" MaxHeight="600">
+    <Grid Background="#FF323232">
+        <Grid x:Name="Grid_Window_Control" Height="40" Margin="0,10,10,0" VerticalAlignment="Top" Width="70" HorizontalAlignment="Right" Panel.ZIndex="10">
+            <Button x:Name="button_Minimize" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="30" Height="30" Background="{x:Null}" Content="__" BorderThickness="0" HorizontalAlignment="Left" Foreground="White" Click="Button_Minimize_Click"/>
+            <Button x:Name="button_Close" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="30" Height="30" Background="{x:Null}" Content="X" BorderThickness="0" HorizontalAlignment="Right" Click="Button_Close_Click" Foreground="White"/>
+        </Grid>
+        <Grid x:Name="Grid_Update" Background="#FFA4A4A4" Panel.ZIndex="1" Visibility="Hidden">
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel>
+                    <Image Source="images/update.png" Width="120" Height="120" />
+                    <Label x:Name="Grid_Update_Label_info" Content="Доступно обновление до: " />
+                    <Button x:Name="Button_Update" Content="Обновить сейчас" Click="Button_Update_Click" />
+                </StackPanel>
+            </Grid>
+        </Grid>
+        <Grid x:Name="Grid_login" Background="Black" Panel.ZIndex="1" Visibility="Hidden">
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel>
+                    <Label x:Name="Label_login_status" Content="Кошелёк не найден, зарегистрируемся?" Foreground="White" HorizontalAlignment="Center" />
+                    <StackPanel Orientation="Horizontal" Margin="0,10">
+                        <Label Content="Ваш логин: " Foreground="White" />
+                        <TextBox x:Name="TextBox_username" Margin="0" VerticalContentAlignment="Stretch" HorizontalAlignment="Center" Width="200"/>
+                    </StackPanel>
+                    <Button x:Name="Button_Login" Content="Вход" Height="40" FontSize="16" Click="Button_Login_Click" />
+                </StackPanel>
+            </Grid>
+        </Grid>
+        <Grid x:Name="Grid_Content">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="Grid_Left_menu" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <StackPanel Background="#FF171717" Margin="0,0,0,0">
+                    <Button x:Name="Button_hamburger" Click="Button_hamburger_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="50" HorizontalContentAlignment="Left">
+                        <StackPanel Orientation="Horizontal">
+                            <Grid Width="50" Height="50">
+                                <Image Width="20" Height="20" HorizontalAlignment="Center" Source="images/hamburger.png" Margin="0" />
+                            </Grid>
+                            <Label Content="Меню" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#00000000" Foreground="White" />
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="Button_home"  Click="Button_home_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="50" HorizontalContentAlignment="Left">
+                        <StackPanel Orientation="Horizontal">
+                            <Grid Width="50" Height="50">
+                                <Image Width="20" Height="20" HorizontalAlignment="Center" Source="images/home.png" Margin="0" />
+                            </Grid>
+                            <Label Content="Главная" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#00000000" Foreground="White" />
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="Button_transaction"  Click="Button_transaction_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="50" HorizontalContentAlignment="Left">
+                        <StackPanel Orientation="Horizontal">
+                            <Grid Width="50" Height="50">
+                                <Image Width="20" Height="20" HorizontalAlignment="Center" Source="images/transaction.png" Margin="0" />
+                            </Grid>
+                            <Label Content="Транзакции" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#00000000" Foreground="White" />
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="Button_blocks"  Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="50" HorizontalContentAlignment="Left" Click="Button_blocks_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Grid Width="50" Height="50">
+                                <Image Width="20" Height="20" HorizontalAlignment="Center" Source="images/blocks.png" Margin="0" />
+                            </Grid>
+                            <Label Content="Блоки" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#00000000" Foreground="White" />
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="Button_admin"  Click="Button_admin_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="50" HorizontalContentAlignment="Left" Visibility="Hidden">
+                        <StackPanel Orientation="Horizontal">
+                            <Grid Width="50" Height="50">
+                                <Image Width="20" Height="20" HorizontalAlignment="Center" Source="images/admin.png" Margin="0" />
+                            </Grid>
+                            <Label Content="Admin" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#00000000" Foreground="White" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+                <Button x:Name="Button_settings" Grid.Row="1"  Click="Button_settings_Click" Background="#FF0F0F0F" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="50" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Padding="0" BorderThickness="0">
+                    <StackPanel Orientation="Horizontal">
+                        <Grid Width="50" Height="50">
+                            <Image Width="20" Height="20" HorizontalAlignment="Center" Source="images/settings.png" Margin="0" />
+                        </Grid>
+                        <Label Content="Настройки" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#00000000" Foreground="White" />
+                    </StackPanel>
+                </Button>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid x:Name="Grid_home" Background="Black" Visibility="Hidden">
+                    <Grid Margin="15">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Label x:Name="Label_Grid_home_username" Grid.Row="0" HorizontalAlignment="Left" Foreground="White"  FontSize="24" FontFamily="Segoe UI Light" Content="Username" />
+                        <Grid Grid.Row="1" x:Name="Grid_home_content">
+                            <Grid Margin="15">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="200"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid Grid.Row="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="40*"/>
+                                            <ColumnDefinition Width="30*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid Grid.Column="0" Margin="5" >
+                                            <Label x:Name="Home_Status" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" Content="Не в сети" Foreground="Red" FontSize="36" FontFamily="Segoe UI Light"/>
+                                        </Grid>
+                                        <Grid Grid.Column="1" Margin="5" Background="#FF252525">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="1*"/>
+                                            </Grid.RowDefinitions>
+                                            <Label Grid.Row="0" VerticalAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="Локальные данные" Foreground="#FF767676" FontWeight="Bold"/>
+                                            <Grid Grid.Row="1" Margin="10">
+                                                <Label Content="Транзакции" VerticalAlignment="Top" Foreground="#FF767676" FontWeight="Bold" HorizontalAlignment="Left"/>
+                                                <Label x:Name="Home_Local_Transacions_Count" Content="0" VerticalAlignment="Top" Foreground="#FF767676" FontWeight="Bold" HorizontalAlignment="Right"/>
+                                                <Label Content="Блоки" HorizontalAlignment="Left" VerticalContentAlignment="Center" VerticalAlignment="Center" Foreground="#FF767676" FontWeight="Bold"/>
+                                                <Label x:Name="Home_Local_Blocks_Count" Content="0" HorizontalAlignment="Right" VerticalContentAlignment="Center" VerticalAlignment="Center" Foreground="#FF767676" FontWeight="Bold"/>
+                                                <Button x:Name="Home_make_block" VerticalAlignment="Bottom" Background="#FF0B7A00" Padding="20,10" BorderBrush="{x:Null}" Content="Создать блок" Foreground="White" FontSize="14" FontFamily="Segoe UI Light" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" Click="Home_make_block_Click"/>
+                                            </Grid>
+
+                                        </Grid>
+                                    </Grid>
+                                    <Grid Grid.Row="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="2*"/>
+                                            <ColumnDefinition Width="1*"/>
+                                            <ColumnDefinition Width="1*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid Grid.Column="0" Margin="5" >
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="1*"/>
+                                                <RowDefinition Height="1*"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid Grid.Row="0" Margin="1,1,1,6" Background="#FF252525">
+                                                <Label HorizontalAlignment="Center" VerticalAlignment="Top" Content="Онлайн" Foreground="#FF767676" FontWeight="Bold"/>
+                                                <Label x:Name="Home_status_online" HorizontalAlignment="Center" VerticalAlignment="Center" Content="0" Foreground="#FF767676" FontWeight="Bold" VerticalContentAlignment="Bottom"/>
+                                            </Grid>
+                                            <Grid Grid.Row="1" Margin="1,6,1,1" Background="#FF252525">
+                                                <Label HorizontalAlignment="Center" VerticalAlignment="Top" Content="Кошелёк" Foreground="#FF767676" FontWeight="Bold"/>
+                                                <Label x:Name="Wallet_Coins" HorizontalAlignment="Center" VerticalAlignment="Center" Content="0" Foreground="#FF767676" FontWeight="Bold" Margin="0,0,0,20"/>
+                                                <TextBox x:Name="Home_status_wallet" Margin="0" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="18" Background="#FF171717" BorderThickness="0" Height="50" BorderBrush="{x:Null}" Text="Ваш кошелёк" Foreground="White" />
+                                            </Grid>
+                                        </Grid>
+                                        <Grid Grid.Column="1" Margin="6" Background="#FF252525">
+                                            <Label HorizontalAlignment="Center" VerticalAlignment="Top" Content="Транзакции" Foreground="#FF767676" FontWeight="Bold"/>
+                                            <Label x:Name="Home_Global_Transactions_Count" HorizontalAlignment="Center" VerticalAlignment="Center" Content="0" Foreground="#FF767676" FontWeight="Bold" VerticalContentAlignment="Center"/>
+                                        </Grid>
+                                        <Grid Grid.Column="2" Margin="6" Background="#FF252525">
+                                            <Label x:Name="Home_Global_Blocks_Count" HorizontalAlignment="Center" VerticalAlignment="Center" Content="0" Foreground="#FF767676" FontWeight="Bold" VerticalContentAlignment="Center"/>
+                                            <Label HorizontalAlignment="Center" VerticalAlignment="Top" Content="Блоки" Foreground="#FF767676" FontWeight="Bold"/>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid x:Name="Grid_transactions" Visibility="Hidden">
+                    <Grid Margin="15">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Content="Транзакции" HorizontalAlignment="Left" Foreground="White"  FontSize="24" FontFamily="Segoe UI Light" />
+                        <Grid Grid.Row="1" x:Name="Grid_transactions_content">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Horizontal">
+                                <Button x:Name="Transaction_Get_choice" Content="Поиск транзакции" Margin="0,0,10,0" BorderThickness="0" Padding="20,10" Background="#FF292929" BorderBrush="White" Foreground="White" Click="Transaction_Get_choice_Click" />
+                                <Button x:Name="Transaction_Add_choice" Content="Добавление тразнакции" Margin="10,0,0,0" BorderThickness="0" Padding="20,10" Background="#FF292929" BorderBrush="White" Foreground="White" Click="Transaction_Add_choice_Click"/>
+                            </StackPanel>
+                            <Grid x:Name="Grid_Transaction_Get" Grid.Row="1" Background="#FF252525">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition Height="80"/>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0">
+                                    <StackPanel>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="200"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="45"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="0" Content="Предыдущая транзакция" Foreground="White" Margin="0" Padding="10" FontSize="16" FontFamily="Segoe UI Light" FontWeight="Bold" Background="#FF171717" HorizontalContentAlignment="Center" />
+                                            <TextBox x:Name="Transaction_Get_input" Grid.Column="1" MinWidth="2" Text="Предыдущая транзакция" Padding="20,10" Background="#FF303030" Foreground="White" SelectionBrush="Black" BorderThickness="0" />
+                                            <Label Grid.Column="2" Content="1.0" Foreground="White" Margin="0" Padding="10" FontSize="16" FontFamily="Segoe UI Light" FontWeight="Bold" Background="#FF0C5132" HorizontalContentAlignment="Center" />
+                                        </Grid>
+                                        <Grid Margin="0,10,0,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="200"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="0" Content="Получатель" Foreground="White" Margin="0" Padding="10" FontSize="16" FontFamily="Segoe UI Light" FontWeight="Bold" Background="#FF171717" HorizontalContentAlignment="Center" />
+                                            <TextBox x:Name="Transaction_Get_output" Grid.Column="1" MinWidth="2" Text="Получатель" Padding="20,10" Background="#FF303030" Foreground="White" SelectionBrush="Black" BorderThickness="0" />
+                                        </Grid>
+                                        <Grid Margin="0,10,0,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="200"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="0" Content="Публичный ключ" Foreground="White" Margin="0" Padding="10" FontSize="16" FontFamily="Segoe UI Light" FontWeight="Bold" Background="#FF171717" HorizontalContentAlignment="Center" />
+                                            <TextBox x:Name="Transaction_Get_publickey" Grid.Column="1" MinWidth="2" Text="Публичный ключ" Padding="20,10" Background="#FF303030" Foreground="White" SelectionBrush="Black" BorderThickness="0" />
+                                        </Grid>
+                                        <Grid Margin="0,10,0,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="200"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="0" Content="Информация" Foreground="White" Margin="0" Padding="10" FontSize="16" FontFamily="Segoe UI Light" FontWeight="Bold" Background="#FF171717" HorizontalContentAlignment="Center" />
+                                            <TextBox x:Name="Transaction_Get_information" Grid.Column="1" MinWidth="2" Text="Дополнительная информация" Padding="20,10" Background="#FF303030" Foreground="White" SelectionBrush="Black" BorderThickness="0" />
+                                        </Grid>
+                                        <Label  x:Name="Transaction_Get_info" Background="#FF171717" HorizontalContentAlignment="Center" Margin="0,20,0,0" Content="Информация" Foreground="White" Padding="5,10"/>
+                                    </StackPanel>
+                                </Grid>
+                                <Grid Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="200"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Content="Поиск" Foreground="White" Margin="0" Padding="10" FontSize="16" FontFamily="Segoe UI Light" FontWeight="Bold" Background="#FF171717" HorizontalContentAlignment="Center" />
+                                    <TextBox x:Name="Transaction_Get_Search" Grid.Column="1" VerticalAlignment="Center" Height="50" Background="#FF303030" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0" Foreground="White" />
+                                </Grid>
+                                <Label Grid.Row="2" x:Name="Transaction_Get_Warning" Content="Warning" Foreground="White" HorizontalContentAlignment="Center"/>
+                                <Button Grid.Row="3" x:Name="Transaction_search" Content="Поиск" Padding="0,10" Margin="0,0,0,-5" Background="#FF005B1D" BorderBrush="{x:Null}" Foreground="White" FontSize="16" FontFamily="Segoe UI Light" Click="Transaction_search_Click" VerticalAlignment="Bottom" />
+                            </Grid>
+                            <Grid x:Name="Grid_Transaction_Add" Grid.Row="1" Background="#FF252525" Visibility="Hidden">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition Height="80"/>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0">
+                                    <StackPanel>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="200"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="0" Content="Адресат" Foreground="White" Margin="0" Padding="10" FontSize="16" FontFamily="Segoe UI Light" FontWeight="Bold" Background="#FF171717" HorizontalContentAlignment="Center" />
+                                            <TextBox x:Name="Transaction_Add_output" Grid.Column="1" MinWidth="2" Text="" Padding="20,10" Background="#FF303030" Foreground="White" SelectionBrush="Black" BorderThickness="0" />
+                                        </Grid>
+                                        <Grid Margin="0,10,0,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="200"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="40"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="0" Content="Предыдущая транзакция" Foreground="White" Margin="0" Padding="10" FontSize="16" FontFamily="Segoe UI Light" FontWeight="Bold" Background="#FF171717" HorizontalContentAlignment="Center" />
+                                            <ComboBox x:Name="Transaction_Add_input" Grid.Column="1" BorderBrush="{x:Null}" Background="{x:Null}" BorderThickness="0" Padding="6,6,5,6" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                            <Button x:Name="Transaction_Add_Update" Grid.Column="2" Background="#FF005B1D" Content="UP" BorderBrush="{x:Null}" Foreground="White" Padding="0" Click="Transaction_Add_Update_Click"/>
+                                        </Grid>
+                                        <Grid Margin="0,10,0,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="200"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="0" Content="Публичный ключ" Foreground="White" Margin="0" Padding="10" FontSize="16" FontFamily="Segoe UI Light" FontWeight="Bold" Background="#FF171717" HorizontalContentAlignment="Center" />
+                                            <TextBox x:Name="Transaction_Add_publickey" Grid.Column="1" MinWidth="2" Text="Публичный ключ" Padding="20,10" Background="#FF303030" Foreground="White" SelectionBrush="Black" BorderThickness="0" IsEnabled="False" />
+                                        </Grid>
+                                        <Grid Margin="0,10,0,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="200"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="0" Content="Информация" Foreground="White" Margin="0" Padding="10" FontSize="16" FontFamily="Segoe UI Light" FontWeight="Bold" Background="#FF171717" HorizontalContentAlignment="Center" />
+                                            <TextBox x:Name="transaction_Add_information" Grid.Column="1" MinWidth="2" Text="Некоторая информация" Padding="20,10" Background="#FF303030" Foreground="White" SelectionBrush="Black" BorderThickness="0" />
+                                        </Grid>
+                                        <Label x:Name="Transaction_Add_info" Background="#FF171717" HorizontalContentAlignment="Center" Margin="0,20,0,0" Content="Информация" Foreground="White" Padding="5,10"/>
+                                    </StackPanel>
+                                </Grid>
+                                <Grid Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="200"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Content="Результат" Foreground="White" Margin="0" Padding="10" FontSize="16" FontFamily="Segoe UI Light" FontWeight="Bold" Background="#FF171717" HorizontalContentAlignment="Center" />
+                                    <TextBox x:Name="Transaction_Add_Result" Grid.Column="1" VerticalAlignment="Center" Height="50" Background="#FF303030" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0" Foreground="White" />
+                                </Grid>
+                                <Label Grid.Row="2" x:Name="Transaction_Add_Warning" Content="Warning" Foreground="White" HorizontalContentAlignment="Center" VerticalAlignment="Top"/>
+                                <Button Grid.Row="3" x:Name="Transaction_sign" Content="Подписать и отправить" Padding="0,10" Margin="0,0,0,-5" Background="#FF005B1D" BorderBrush="{x:Null}" Foreground="White" FontSize="16" FontFamily="Segoe UI Light" Click="Transaction_sign_Click" VerticalAlignment="Bottom" />
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid x:Name="Grid_blocks">
+                    <Grid Margin="15">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Content="Поиск блоков" HorizontalAlignment="Left" Foreground="White"  FontSize="24" FontFamily="Segoe UI Light" />
+                        <Grid Grid.Row="1" x:Name="Grid_blocks_content">
+                            <Grid x:Name="Grid_Blocks_Get" Background="#FF252525">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition Height="80"/>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0">
+                                    <StackPanel>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="200"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="45"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="0" Content="Предыдущий блок" Foreground="White" Margin="0" Padding="10" FontSize="16" FontFamily="Segoe UI Light" FontWeight="Bold" Background="#FF171717" HorizontalContentAlignment="Center" />
+                                            <TextBox x:Name="Blocks_Get_previous" Grid.Column="1" MinWidth="2" Text="Предыдущий блок" Padding="20,10" Background="#FF303030" Foreground="White" SelectionBrush="Black" BorderThickness="0" />
+                                            <Label x:Name="Blocks_version" Grid.Column="2" Content="0.0" Foreground="White" Margin="0" Padding="10" FontSize="16" FontFamily="Segoe UI Light" FontWeight="Bold" Background="#FF0C5132" HorizontalContentAlignment="Center" />
+                                        </Grid>
+                                        <Grid Margin="0,10,0,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="200"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="0" Content="Время" Foreground="White" Margin="0" Padding="10" FontSize="16" FontFamily="Segoe UI Light" FontWeight="Bold" Background="#FF171717" HorizontalContentAlignment="Center" />
+                                            <TextBox x:Name="Blocks_Get_time" Grid.Column="1" MinWidth="2" Text="Время" Padding="20,10" Background="#FF303030" Foreground="White" SelectionBrush="Black" BorderThickness="0" />
+                                        </Grid>
+                                        <Grid Margin="0,10,0,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="200"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="0" Content="Количество транзакций" Foreground="White" Margin="0" Padding="10" FontSize="16" FontFamily="Segoe UI Light" FontWeight="Bold" Background="#FF171717" HorizontalContentAlignment="Center" />
+                                            <TextBox x:Name="Blocks_Get_transaction_count" Grid.Column="1" MinWidth="2" Text="Количество транзакций" Padding="20,10" Background="#FF303030" Foreground="White" SelectionBrush="Black" BorderThickness="0" />
+                                        </Grid>
+                                        <Grid Margin="0,10,0,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="200"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="0" Content="Транзакции" Foreground="White" Margin="0" Padding="10" FontSize="16" FontFamily="Segoe UI Light" FontWeight="Bold" Background="#FF171717" HorizontalContentAlignment="Center" />
+                                            <ComboBox x:Name="Blocks_Get_transactions" Grid.Column="1" BorderBrush="{x:Null}" Background="{x:Null}" BorderThickness="0" Padding="6,6,5,6" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                        <Grid Margin="0,10,0,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="200"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="0" Content="Сдвиг" Foreground="White" Margin="0" Padding="10" FontSize="16" FontFamily="Segoe UI Light" FontWeight="Bold" Background="#FF171717" HorizontalContentAlignment="Center" />
+                                            <TextBox x:Name="Blocks_Get_flowing" Grid.Column="1" MinWidth="2" Text="Сдвиг" Padding="20,10" Background="#FF303030" Foreground="White" SelectionBrush="Black" BorderThickness="0" />
+                                        </Grid>
+                                        <Label  x:Name="Blocks_Get_info" Background="#FF171717" HorizontalContentAlignment="Center" Margin="0,20,0,0" Content="Информация" Foreground="White" Padding="5,10"/>
+                                    </StackPanel>
+                                </Grid>
+                                <Grid Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="200"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Content="Поиск" Foreground="White" Margin="0" Padding="10" FontSize="16" FontFamily="Segoe UI Light" FontWeight="Bold" Background="#FF171717" HorizontalContentAlignment="Center" />
+                                    <TextBox x:Name="Blocks_Get_Search" Grid.Column="1" VerticalAlignment="Center" Height="50" Background="#FF303030" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0" Foreground="White" />
+                                </Grid>
+                                <Label Grid.Row="2" x:Name="Blocks_Get_Warning" Content="Warning" Foreground="White" HorizontalContentAlignment="Center"/>
+                                <Button Grid.Row="3" x:Name="Blocks_search" Content="Поиск" Padding="0,10" Margin="0,0,0,-5" Background="#FF005B1D" BorderBrush="{x:Null}" Foreground="White" FontSize="16" FontFamily="Segoe UI Light" Click="Blocks_search_Click" VerticalAlignment="Bottom" />
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid x:Name="Grid_admin" Background="#FF072900" Visibility="Hidden">
+                    <Grid Margin="15">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Content="Админка" HorizontalAlignment="Left" Foreground="White"  FontSize="24" FontFamily="Segoe UI Light" />
+                        <Grid Grid.Row="1" x:Name="Grid_admin_content">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Horizontal">
+                                <Button x:Name="Button_admin_update_all" Content="Обновить всех" Click="Button_admin_update_all_ClickAsync" Margin="5,0" />
+                                <Button x:Name="Button_admin_sign" Content="Подписать текущую версию" Margin="5,0" Click="Button_admin_sign_Click" />
+                                <Button x:Name="Button_admin_money" Content="SEAWAYS" Margin="5,0" Click="Button_admin_money_Click" />
+                                <Button x:Name="Button_admin_test" Content="Кнопка для тестов" Margin="5,0" Click="Button_admin_test_Click" />
+                            </StackPanel>
+                            <Grid Grid.Row="1" Background="Black">
+                                <ScrollViewer>
+                                    <RichTextBox x:Name="RichTextBox_Console" Foreground="White" Background="Black" />
+                                </ScrollViewer>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+                <Grid x:Name="Grid_settings" Background="Black" Visibility="Hidden">
+                    <Grid Margin="15">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Content="Настройки" HorizontalAlignment="Left" Foreground="White"  FontSize="24" FontFamily="Segoe UI Light" />
+                        <Grid Grid.Row="1" x:Name="Grid_settings_content">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="70"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0" x:Name="Grid_settings_content_information" VerticalAlignment="Top" Height="70">
+                                <Label Content="Версия приложения" Background="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+                                <Label x:Name="Grid_settings_Lable_version" HorizontalAlignment="Left" VerticalAlignment="Center" Width="10" MinWidth="120" MinHeight="30" Margin="0" Content="2.0.0.0" Background="{x:Null}" Foreground="White" Padding="0,8,0,0" HorizontalContentAlignment="Center" />
+                                <Label Content="Версия блоков" Background="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+                                <Label x:Name="Grid_settings_Lable_block" HorizontalAlignment="Center" VerticalAlignment="Center" Width="10" MinWidth="120" MinHeight="30" Margin="0" Content="1.0" Background="{x:Null}" Foreground="White" Padding="0,8,0,0" HorizontalContentAlignment="Center" />
+                                <Label Content="Версия транзакций" Background="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+                                <Label x:Name="Grid_settings_Lable_transaction" HorizontalAlignment="Right" VerticalAlignment="Center" Width="10" MinWidth="120" MinHeight="30" Margin="0" Content="1.0" Background="{x:Null}" Foreground="White" Padding="0,8,0,0" HorizontalContentAlignment="Center" />
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <Button x:Name="Button_check_for_update" Content="Проверить обновления" Click="Button_check_for_update_Click" VerticalAlignment="Top" HorizontalAlignment="Right" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

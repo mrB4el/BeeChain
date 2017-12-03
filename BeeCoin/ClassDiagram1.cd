@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="BeeCoin.Additional">
+    <Position X="21" Y="1" Width="1.75" />
+    <NestedTypes>
+      <Struct Name="BeeCoin.Additional.TwoBytesArrays" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Classes\Additional.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="BeeCoin.Additional.Cortage" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Classes\Additional.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="BeeCoin.Additional.Transaction" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Classes\Additional.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="BeeCoin.Additional.Block" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Classes\Additional.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAIAEAAAAAAiCAYIAAAAAAAAAIABAAAACAgAA=</HashCode>
+      <FileName>Classes\Additional.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="window" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BeeCoin.AdminClass">
+    <Position X="27" Y="5.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAQBQEAgAAQAAABAAAAAAABQBAAAAAAAAI=</HashCode>
+      <FileName>Classes\AdminClass.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="directory" />
+      <Field Name="info" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BeeCoin.Blocks">
+    <Position X="13" Y="5.5" Width="1.75" />
+    <NestedTypes>
+      <Struct Name="BeeCoin.Blocks.Transaction_info" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Classes\Blocks.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AACAAIAAAAAAAQAACJCQAAAAAAAEgAAiBCgAAAABAAI=</HashCode>
+      <FileName>Classes\Blocks.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="cryptography" />
+      <Field Name="filetransfering" />
+      <Field Name="filesystem" />
+      <Field Name="getlogic" />
+      <Field Name="server" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BeeCoin.Cryptography">
+    <Position X="29.75" Y="5.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIACREQgAIIAAGAAgAAgAAIAAAAQABAAAA=</HashCode>
+      <FileName>Classes\Cryptography.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="filesystem" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BeeCoin.FileSystem">
+    <Position X="10" Y="5.5" Width="2" />
+    <NestedTypes>
+      <Struct Name="BeeCoin.FileSystem.Config" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Classes\FileSystem.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AABAAAkAAAgAAYEAAAAAAAAAAAAEAAAQAAAAAACAAQA=</HashCode>
+      <FileName>Classes\FileSystem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeCoin.FileTransfering">
+    <Position X="25.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AhAACAEAEGCIAECAAEAAAAAAAAACAAAQAAAAAAAgAAU=</HashCode>
+      <FileName>Classes\FileTransfering.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeCoin.GetLogic">
+    <Position X="32" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACQAAAYAAAAAAAAEEgAACAAFAAAAABAI=</HashCode>
+      <FileName>Classes\GetLogic.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="filesystem" />
+      <Field Name="filetransfering" />
+      <Field Name="cryptography" />
+      <Field Name="blocks" />
+      <Field Name="server" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BeeCoin.Information">
+    <Position X="15" Y="5.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAASACACAACQCAAAACAAAABAAEwAgAAAgggAAAAAA=</HashCode>
+      <FileName>Classes\Information.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="cryptography" />
+      <Field Name="filesystem" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BeeCoin.MainClass">
+    <Position X="23.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AASAAAACAAAAAQAACEAAAAAAAAEEgAAKQAAAAAAEhAI=</HashCode>
+      <FileName>Classes\MainClass.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="filesystem" />
+      <Field Name="server" />
+      <Field Name="cryptography" />
+      <Field Name="mine" />
+      <Field Name="info" />
+      <Field Name="filetransfering" />
+      <Field Name="admin" />
+      <Field Name="update" />
+      <Field Name="blocks" />
+      <Field Name="transactions" />
+      <Field Name="getlogic" />
+      <Field Name="window" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BeeCoin.UDPServer">
+    <Position X="17.25" Y="5.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAgAAAAQCYAgCUCAAAAASAEEAAhBEA0AAEAEhAE=</HashCode>
+      <FileName>Classes\Server.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="directory" />
+      <Field Name="cryptography" />
+      <Field Name="update" />
+      <Field Name="admin" />
+      <Field Name="transactions" />
+      <Field Name="blocks" />
+      <Field Name="getlogic" />
+      <Field Name="adminlogic" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BeeCoin.AdminLogic">
+    <Position X="17.5" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAgAAAAABAAAAEAAA=</HashCode>
+      <FileName>Classes\Server.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="filesystem" />
+      <Field Name="update" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BeeCoin.Transactions">
+    <Position X="20" Y="5.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAiAAIBQBACAACAAAAAAAEgABEAAIAIQCEAAI=</HashCode>
+      <FileName>Classes\Transactions.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="cryptography" />
+      <Field Name="filesystem" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BeeCoin.Updating">
+    <Position X="22.75" Y="5.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAQAQEAAAAQAAAAAAAEAAQCwAAIAQgBIAI=</HashCode>
+      <FileName>Classes\Updating.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="directory" />
+      <Field Name="filetransfering" />
+      <Field Name="cryptography" />
+      <Field Name="server" />
+      <Field Name="info" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BeeCoin.MainWindow" Collapsed="true">
+    <Position X="24" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAQAAgKABBQAMoQFIBAMAAAUAAgAAUAADACQEAAQ=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

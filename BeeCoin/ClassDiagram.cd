@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="BeeCoin.Additional">
+    <Position X="33.25" Y="0.5" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="BeeCoin.Additional.TwoBytesArrays" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Classes\Additional.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="BeeCoin.Additional.Cortage" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Classes\Additional.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="BeeCoin.Additional.Transaction" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Classes\Additional.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="BeeCoin.Additional.Block" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Classes\Additional.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAIAEAAAAAAiCAYIAAAAAAAAAIABAAAACAgAA=</HashCode>
+      <FileName>Classes\Additional.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeCoin.AdminClass">
+    <Position X="28.25" Y="1.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAQBQEAgAAQAAABAAAAAAABQBAAAAAAAAI=</HashCode>
+      <FileName>Classes\AdminClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeCoin.Blocks">
+    <Position X="30.5" Y="7.75" Width="2" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="BeeCoin.Blocks.Transaction_info" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Classes\Blocks.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <InheritanceLine Type="BeeCoin.Additional" FixedFromPoint="true">
+      <Path>
+        <Point X="34.375" Y="7.077" />
+        <Point X="34.375" Y="7.375" />
+        <Point X="31.5" Y="7.375" />
+        <Point X="31.5" Y="7.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AACAAIAAAAAAAQAACJCQAAAAAAAEgAAiBCgAAAABAAI=</HashCode>
+      <FileName>Classes\Blocks.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeCoin.Cryptography">
+    <Position X="36.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIACREQgAIIAAGAAgAAgAAIAAAAQABAAAA=</HashCode>
+      <FileName>Classes\Cryptography.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeCoin.FileSystem">
+    <Position X="27.75" Y="9" Width="2" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="BeeCoin.FileSystem.Config" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Classes\FileSystem.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <InheritanceLine Type="BeeCoin.Additional" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="34.375" Y="7.077" />
+        <Point X="34.375" Y="7.375" />
+        <Point X="30.125" Y="7.375" />
+        <Point X="30.125" Y="11.151" />
+        <Point X="29.75" Y="11.151" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AABAAAkAAAgAAYEAAAAAAAAAAAAEAAAQAAAAAACAAQA=</HashCode>
+      <FileName>Classes\FileSystem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeCoin.FileTransfering">
+    <Position X="30.5" Y="2.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AhAACAEAEGCIAECAAEAAAAAAAAACAAAQAAAAAAAgAAU=</HashCode>
+      <FileName>Classes\FileTransfering.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeCoin.GetLogic">
+    <Position X="32.75" Y="8.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACQAAAYAAAAAAAAEEgAACAAFAAAAABAI=</HashCode>
+      <FileName>Classes\GetLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeCoin.Information">
+    <Position X="38.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAASACACAACQCAAAACAAAABAAEwAgAAAgggAAAAAA=</HashCode>
+      <FileName>Classes\Information.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeCoin.MainClass">
+    <Position X="39" Y="8" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AASAAAACAAAAAQAACEAAAAAAAAEEgAAKQAAAAAAEhAI=</HashCode>
+      <FileName>Classes\MainClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeCoin.UDPServer">
+    <Position X="25.25" Y="1.5" Width="2.5" />
+    <InheritanceLine Type="BeeCoin.Additional" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="34.375" Y="7.077" />
+        <Point X="34.375" Y="7.375" />
+        <Point X="27.75" Y="7.375" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AgAAAAgAAAAQCYAgCUCAAAAASAEEAAhBEA0AAEAEhAE=</HashCode>
+      <FileName>Classes\Server.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeCoin.AdminLogic">
+    <Position X="25.25" Y="10" Width="2" />
+    <InheritanceLine Type="BeeCoin.UDPServer" FixedToPoint="true">
+      <Path>
+        <Point X="26.5" Y="8.444" />
+        <Point X="26.5" Y="9.625" />
+        <Point X="26.062" Y="9.625" />
+        <Point X="26.062" Y="10" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAgAAAAABAAAAEAAA=</HashCode>
+      <FileName>Classes\Server.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeCoin.Transactions">
+    <Position X="35.75" Y="8.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAiAAIBQBACAACAAAAAAAEgABEAAIAIQCEAAI=</HashCode>
+      <FileName>Classes\Transactions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeCoin.Updating">
+    <Position X="40.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAQAQEAAAAQAAAAAAAEAAQCwAAIAQgBIAI=</HashCode>
+      <FileName>Classes\Updating.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeCoin.MainWindow" BaseTypeListCollapsed="true">
+    <Position X="41.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAQAAgKABBQAMoQFIBAMAAAUAAgAAUAADACQEAAQ=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
